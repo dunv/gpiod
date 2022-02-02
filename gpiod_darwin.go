@@ -5,27 +5,31 @@ package gpiod
 
 import "errors"
 
-func NewChip(chipName string) (FakeChip, error) {
-	return FakeChip{}, nil
+func NewChip(chipName string) (*Chip, error) {
+	return &Chip{}, errors.New("not implemented for platform darwin")
 }
 
-type FakeChip struct {
+type Chip struct {
 	ChipName string
 }
 
-func (FakeChip) Close() error {
-	return nil
+func (*Chip) Close() error {
+	return errors.New("not implemented for platform darwin")
 }
 
-func (FakeChip) RequestLine(gpioOffset int, inputOption int) (FakeInput, error) {
-	return FakeInput{}, nil
+func (*Chip) RequestLine(gpioOffset int, inputOption int) (*Line, error) {
+	return &Line{}, errors.New("not implemented for platform darwin")
 }
 
-type FakeInput struct {
+type Line struct {
 }
 
-func (FakeInput) Value() (int, error) {
+func (*Line) Value() (int, error) {
 	return 0, errors.New("not implemented for platform darwin")
+}
+
+func (*Line) Close() error {
+	return errors.New("not implemented for platform darwin")
 }
 
 const AsInput int = 0
