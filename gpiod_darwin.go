@@ -13,6 +13,10 @@ type FakeChip struct {
 	ChipName string
 }
 
+func (FakeChip) Close() error {
+	return nil
+}
+
 func (FakeChip) RequestLine(gpioOffset int, inputOption int) (FakeInput, error) {
 	return FakeInput{}, nil
 }
