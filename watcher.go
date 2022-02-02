@@ -1,4 +1,7 @@
 // SPDX-FileCopyrightText: 2019 Kent Gibson <warthog618@gmail.com>
+//go:build linux
+// +build linux
+
 //
 // SPDX-License-Identifier: MIT
 

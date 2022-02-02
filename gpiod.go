@@ -1,7 +1,10 @@
+//go:build linux
+// +build linux
+
 // SPDX-FileCopyrightText: 2019 Kent Gibson <warthog618@gmail.com>
 //
 // SPDX-License-Identifier: MIT
-
+//
 // Package gpiod is a library for accessing GPIO pins/lines on Linux platforms
 // using the GPIO character device.
 //
