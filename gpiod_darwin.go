@@ -17,7 +17,7 @@ func (*Chip) Close() error {
 	return errors.New("not implemented for platform darwin")
 }
 
-func (*Chip) RequestLine(gpioOffset int, inputOption int) (*Line, error) {
+func (*Chip) RequestLine(gpioOffset int, inputOption interface{}) (*Line, error) {
 	return &Line{}, errors.New("not implemented for platform darwin")
 }
 
