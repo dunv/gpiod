@@ -23,12 +23,8 @@
 //
 // Example of use:
 //
-//  c, err := gpiod.NewChip("gpiochip0")
-//  if err != nil {
-//  	panic(err)
-//  }
 //  v := 0
-//  l, err := c.RequestLine(4, gpiod.AsOutput(v))
+//  l, err := gpiod.RequestLine("gpiochip0", 4, gpiod.AsOutput(v))
 //  if err != nil {
 //  	panic(err)
 //  }
@@ -219,7 +215,7 @@ func Chips() []string {
 func RequestLine(chip string, offset int, options ...LineReqOption) (*Line, error) {
 	c, err := NewChip(chip)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	defer c.Close()
 	return c.RequestLine(offset, options...)
@@ -231,7 +227,7 @@ func RequestLine(chip string, offset int, options ...LineReqOption) (*Line, erro
 func RequestLines(chip string, offsets []int, options ...LineReqOption) (*Lines, error) {
 	c, err := NewChip(chip)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	defer c.Close()
 	return c.RequestLines(offsets, options...)
