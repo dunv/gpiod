@@ -33,3 +33,14 @@ func (*Line) Close() error {
 }
 
 const AsInput int = 0
+
+type OutputOption []int
+
+func AsOutput(values ...int) OutputOption {
+	vv := append([]int(nil), values...)
+	return OutputOption(vv)
+}
+
+func (l *Line) SetValue(value int) error {
+	return errors.New("not implemented for platform darwin")
+}
